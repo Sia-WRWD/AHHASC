@@ -1,1 +1,3 @@
-user_id | username | password | name | email | phone_number | address | role |
+Us000001|Example Username|Example Password 1|Example Name|Example Email|Example Contact No.|Example Address|Example Gender|Technician|false
+Us000002|FY0123|123|Ryan|011-3211111|KL|ryan@mail.com|Male|Management|false
+Us000003|Sia123|123|Sia|011-3211111|KL|sia@mail.com|Female|Technician|false

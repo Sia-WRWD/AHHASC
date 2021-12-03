@@ -1,1 +1,2 @@
-customer_id | name | email | phone_number | address |
+Cus000001|Sia|011-3211111|KL|sia@mail.com|Female|false
+Cus000002|Ryan|011-3211111|KL|lim@mail.com|Male|false
