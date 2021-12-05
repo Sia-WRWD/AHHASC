@@ -5,6 +5,7 @@
  */
 package view;
 
+import common.login;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,13 +15,17 @@ import javax.swing.JPanel;
  *
  * @author chinojen7
  */
-public class login extends javax.swing.JFrame {
+public class login_page extends javax.swing.JFrame {
+
+    String username, password, role;
+    boolean isAuthorized = false;
 
     /**
      * Creates new form login2
      */
-    public login() {
+    public login_page() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -147,6 +152,7 @@ public class login extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblPassword.setEditable(false);
         lblPassword.setBackground(new java.awt.Color(0, 0, 0));
         lblPassword.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         lblPassword.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -160,6 +166,7 @@ public class login extends javax.swing.JFrame {
         lblLogin.setText("AHHASC Login");
         jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 210, -1));
 
+        lblUsername.setEditable(false);
         lblUsername.setBackground(new java.awt.Color(0, 0, 0));
         lblUsername.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         lblUsername.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -170,14 +177,14 @@ public class login extends javax.swing.JFrame {
         tfUsername.setBackground(new java.awt.Color(51, 51, 51));
         tfUsername.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         tfUsername.setForeground(new java.awt.Color(255, 255, 255));
-        tfUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfUsername.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfUsername.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(tfUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 310, 40));
 
         pfPassword.setBackground(new java.awt.Color(51, 51, 51));
         pfPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         pfPassword.setForeground(new java.awt.Color(255, 255, 255));
-        pfPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pfPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfPassword.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(pfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 310, 40));
 
@@ -185,6 +192,11 @@ public class login extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("AUTHENTICATE & LOGIN");
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 310, 50));
 
         contentPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 740, 370));
@@ -211,6 +223,18 @@ public class login extends javax.swing.JFrame {
 
     public void changeFontColor(JLabel hover, Color rand) {
         hover.setForeground(rand);
+    }
+
+    public void setLoginDetails() {
+        this.username = this.tfUsername.getText();
+        this.password = this.pfPassword.getText();
+    }
+
+    public void authenticateUser() {
+        this.setLoginDetails();
+
+        login validateFunction = new login();
+        this.isAuthorized = validateFunction.accountValidator(this.username, this.password);
     }
 
     private void btnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseClicked
@@ -249,6 +273,16 @@ public class login extends javax.swing.JFrame {
         this.changeFontColor(lblHome, new Color(239, 183, 183, 255));
     }//GEN-LAST:event_btnHomeMouseExited
 
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        this.authenticateUser();
+
+        if (this.isAuthorized == true) {
+            System.out.println("Success");
+        } else {
+            System.out.println("Fail");
+        }
+    }//GEN-LAST:event_btnLoginMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -266,21 +300,23 @@ public class login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login_page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login_page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login_page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login_page.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+
             }
         });
     }

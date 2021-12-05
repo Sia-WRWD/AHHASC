@@ -88,10 +88,6 @@ public class login {
         }
     }
     
-    // For Testing Purpose Only
-    public static void main(String[] args) {
-        login login = new login();
-        login.accountValidator("FY0123", "123");
-        // login.logout();
-    }
+    
+    
 }

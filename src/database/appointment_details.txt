@@ -1,1 +1,1 @@
-app_id | customer_id | booking_date | room_no | job_status | completion_date | payment_status | feedback | created_by | serviced_by | 
+app_id | client_id | appt_date | room_no | job_status | payment_id | feedback_id | created_by | serviced_by | 

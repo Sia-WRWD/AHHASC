@@ -6,6 +6,7 @@
 package ahhasc;
 
 import java.io.IOException;
+import view.login_page;
 import view.manager_mm;
 
 /**
@@ -13,13 +14,12 @@ import view.manager_mm;
  * @author chinojen7
  */
 public class AHHASC {
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        manager_mm mmm = new manager_mm();
-        mmm.setVisible(true);
+        login_page loginPage = new login_page();
+        loginPage.setVisible(true);
     }
-    
 }
