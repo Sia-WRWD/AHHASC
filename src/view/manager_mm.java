@@ -5,17 +5,38 @@
  */
 package view;
 
+import java.awt.Color;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author chinojen7
  */
 public class manager_mm extends javax.swing.JFrame {
 
+    boolean x = true;
+
     /**
      * Creates new form manager_mm
      */
-    public manager_mm() {
+    public manager_mm() throws IOException {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.hidePanel();
+        this.home_panel.setVisible(true);
+    }
+
+    public void hidePanel() {
+        this.home_panel.setVisible(false);
+        this.manage_user_panel.setVisible(false);
+        this.manage_appt_panel.setVisible(false);
+        this.manage_payment_panel.setVisible(false);
     }
 
     /**
@@ -27,21 +48,531 @@ public class manager_mm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        overall = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
+        header_icon = new javax.swing.JPanel();
+        btnMin = new javax.swing.JPanel();
+        lblMin = new javax.swing.JLabel();
+        btnClose = new javax.swing.JPanel();
+        lblClose = new javax.swing.JLabel();
+        btnHome = new javax.swing.JPanel();
+        lblHome = new javax.swing.JLabel();
+        sidemenu = new javax.swing.JPanel();
+        sidemenu_icon = new javax.swing.JPanel();
+        userManagementLine = new javax.swing.JPanel();
+        userManagement = new javax.swing.JPanel();
+        btnUserManagement = new javax.swing.JLabel();
+        apptManagement = new javax.swing.JPanel();
+        btnApptManagement = new javax.swing.JLabel();
+        apptManagementLine = new javax.swing.JPanel();
+        paymentManagementLine = new javax.swing.JPanel();
+        paymentManagement = new javax.swing.JPanel();
+        btnPaymentManagement = new javax.swing.JLabel();
+        logoutLine = new javax.swing.JPanel();
+        logout = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JLabel();
+        dashboard = new javax.swing.JPanel();
+        manage_payment_panel = new javax.swing.JTabbedPane();
+        view_payment_record = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        paymentTable = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        manage_appt_panel = new javax.swing.JTabbedPane();
+        appt_list_panel = new javax.swing.JPanel();
+        create_appt_panel = new javax.swing.JPanel();
+        manage_user_panel = new javax.swing.JTabbedPane();
+        user_list_panel = new javax.swing.JPanel();
+        register_user_panel = new javax.swing.JPanel();
+        home_panel = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        overall.setBackground(new java.awt.Color(0, 0, 0));
+        overall.setLayout(new java.awt.BorderLayout());
+
+        header.setBackground(new java.awt.Color(102, 102, 255));
+        header.setPreferredSize(new java.awt.Dimension(800, 50));
+        header.setLayout(new java.awt.BorderLayout());
+
+        header_icon.setBackground(new java.awt.Color(0, 0, 0));
+        header_icon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnMin.setBackground(new java.awt.Color(0, 0, 0));
+        btnMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinMouseExited(evt);
+            }
+        });
+        btnMin.setLayout(new java.awt.BorderLayout());
+
+        lblMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/minus_32px.png"))); // NOI18N
+        btnMin.add(lblMin, java.awt.BorderLayout.CENTER);
+
+        header_icon.add(btnMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 50, 50));
+
+        btnClose.setBackground(new java.awt.Color(0, 0, 0));
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCloseMouseExited(evt);
+            }
+        });
+        btnClose.setLayout(new java.awt.BorderLayout());
+
+        lblClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/close_32px.png"))); // NOI18N
+        btnClose.add(lblClose, java.awt.BorderLayout.CENTER);
+
+        header_icon.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 50, 50));
+
+        btnHome.setBackground(new java.awt.Color(0, 0, 0));
+        btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnHomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnHomeMouseExited(evt);
+            }
+        });
+        btnHome.setLayout(new java.awt.BorderLayout());
+
+        lblHome.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        lblHome.setForeground(new java.awt.Color(239, 183, 183));
+        lblHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHome.setText("AHHASC");
+        btnHome.add(lblHome, java.awt.BorderLayout.CENTER);
+
+        header_icon.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 130, 50));
+
+        header.add(header_icon, java.awt.BorderLayout.LINE_END);
+
+        overall.add(header, java.awt.BorderLayout.PAGE_START);
+
+        sidemenu.setBackground(new java.awt.Color(0, 0, 0));
+        sidemenu.setForeground(new java.awt.Color(0, 0, 51));
+        sidemenu.setPreferredSize(new java.awt.Dimension(50, 450));
+        sidemenu.setLayout(new java.awt.BorderLayout());
+
+        sidemenu_icon.setBackground(new java.awt.Color(0, 0, 0));
+        sidemenu_icon.setPreferredSize(new java.awt.Dimension(50, 450));
+        sidemenu_icon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userManagementLine.setBackground(new java.awt.Color(255, 255, 255));
+        userManagementLine.setPreferredSize(new java.awt.Dimension(50, 5));
+
+        javax.swing.GroupLayout userManagementLineLayout = new javax.swing.GroupLayout(userManagementLine);
+        userManagementLine.setLayout(userManagementLineLayout);
+        userManagementLineLayout.setHorizontalGroup(
+            userManagementLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        userManagementLineLayout.setVerticalGroup(
+            userManagementLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
+
+        sidemenu_icon.add(userManagementLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, -1));
+
+        userManagement.setBackground(new java.awt.Color(0, 0, 0));
+        userManagement.setToolTipText("User Management");
+        userManagement.setLayout(new java.awt.BorderLayout());
+
+        btnUserManagement.setBackground(new java.awt.Color(51, 51, 51));
+        btnUserManagement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnUserManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user_50px.png"))); // NOI18N
+        btnUserManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUserManagementMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUserManagementMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUserManagementMouseExited(evt);
+            }
+        });
+        userManagement.add(btnUserManagement, java.awt.BorderLayout.CENTER);
+
+        sidemenu_icon.add(userManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 50, 50));
+
+        apptManagement.setBackground(new java.awt.Color(0, 0, 0));
+        apptManagement.setLayout(new java.awt.BorderLayout());
+
+        btnApptManagement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnApptManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/clock_50px.png"))); // NOI18N
+        btnApptManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnApptManagementMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApptManagementMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApptManagementMouseExited(evt);
+            }
+        });
+        apptManagement.add(btnApptManagement, java.awt.BorderLayout.CENTER);
+
+        sidemenu_icon.add(apptManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 50, 50));
+
+        apptManagementLine.setBackground(new java.awt.Color(255, 255, 255));
+        apptManagementLine.setPreferredSize(new java.awt.Dimension(50, 5));
+
+        javax.swing.GroupLayout apptManagementLineLayout = new javax.swing.GroupLayout(apptManagementLine);
+        apptManagementLine.setLayout(apptManagementLineLayout);
+        apptManagementLineLayout.setHorizontalGroup(
+            apptManagementLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        apptManagementLineLayout.setVerticalGroup(
+            apptManagementLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        sidemenu_icon.add(apptManagementLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, 50, -1));
+
+        paymentManagementLine.setBackground(new java.awt.Color(255, 255, 255));
+        paymentManagementLine.setPreferredSize(new java.awt.Dimension(50, 5));
+
+        javax.swing.GroupLayout paymentManagementLineLayout = new javax.swing.GroupLayout(paymentManagementLine);
+        paymentManagementLine.setLayout(paymentManagementLineLayout);
+        paymentManagementLineLayout.setHorizontalGroup(
+            paymentManagementLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        paymentManagementLineLayout.setVerticalGroup(
+            paymentManagementLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        sidemenu_icon.add(paymentManagementLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 50, -1));
+
+        paymentManagement.setBackground(new java.awt.Color(0, 0, 0));
+        paymentManagement.setLayout(new java.awt.BorderLayout());
+
+        btnPaymentManagement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnPaymentManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/money_50px.png"))); // NOI18N
+        btnPaymentManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPaymentManagementMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPaymentManagementMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPaymentManagementMouseExited(evt);
+            }
+        });
+        paymentManagement.add(btnPaymentManagement, java.awt.BorderLayout.CENTER);
+
+        sidemenu_icon.add(paymentManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 115, 50, 50));
+
+        logoutLine.setBackground(new java.awt.Color(255, 255, 255));
+        logoutLine.setPreferredSize(new java.awt.Dimension(50, 5));
+
+        javax.swing.GroupLayout logoutLineLayout = new javax.swing.GroupLayout(logoutLine);
+        logoutLine.setLayout(logoutLineLayout);
+        logoutLineLayout.setHorizontalGroup(
+            logoutLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        logoutLineLayout.setVerticalGroup(
+            logoutLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        sidemenu_icon.add(logoutLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 165, 50, -1));
+
+        logout.setBackground(new java.awt.Color(0, 0, 0));
+        logout.setLayout(new java.awt.BorderLayout());
+
+        btnLogout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout_32px.png"))); // NOI18N
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseExited(evt);
+            }
+        });
+        logout.add(btnLogout, java.awt.BorderLayout.CENTER);
+
+        sidemenu_icon.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 50, 45));
+
+        sidemenu.add(sidemenu_icon, java.awt.BorderLayout.LINE_START);
+
+        overall.add(sidemenu, java.awt.BorderLayout.LINE_START);
+
+        dashboard.setBackground(new java.awt.Color(0, 0, 0));
+        dashboard.setForeground(new java.awt.Color(51, 51, 51));
+        dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        view_payment_record.setBackground(new java.awt.Color(0, 0, 0));
+        view_payment_record.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane2.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setForeground(new java.awt.Color(51, 51, 51));
+
+        paymentTable.setBackground(new java.awt.Color(255, 255, 255));
+        paymentTable.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        paymentTable.setForeground(new java.awt.Color(0, 0, 0));
+        paymentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Payment ID", "Appointment ID", "Payment Date", "Payment Amount", "Payment Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        paymentTable.setRowHeight(20);
+        jScrollPane2.setViewportView(paymentTable);
+
+        view_payment_record.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 550, 380));
+
+        btnUpdate.setText("Update");
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseClicked(evt);
+            }
+        });
+        view_payment_record.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 140, 40));
+
+        btnDelete.setText("Delete");
+        view_payment_record.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 140, 40));
+
+        manage_payment_panel.addTab("Payment Records", view_payment_record);
+
+        dashboard.add(manage_payment_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
+
+        appt_list_panel.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout appt_list_panelLayout = new javax.swing.GroupLayout(appt_list_panel);
+        appt_list_panel.setLayout(appt_list_panelLayout);
+        appt_list_panelLayout.setHorizontalGroup(
+            appt_list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 745, Short.MAX_VALUE)
+        );
+        appt_list_panelLayout.setVerticalGroup(
+            appt_list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 423, Short.MAX_VALUE)
+        );
+
+        manage_appt_panel.addTab("Appt List\n", appt_list_panel);
+
+        create_appt_panel.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout create_appt_panelLayout = new javax.swing.GroupLayout(create_appt_panel);
+        create_appt_panel.setLayout(create_appt_panelLayout);
+        create_appt_panelLayout.setHorizontalGroup(
+            create_appt_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 745, Short.MAX_VALUE)
+        );
+        create_appt_panelLayout.setVerticalGroup(
+            create_appt_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 423, Short.MAX_VALUE)
+        );
+
+        manage_appt_panel.addTab("Create\n", create_appt_panel);
+
+        dashboard.add(manage_appt_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
+
+        manage_user_panel.setBackground(new java.awt.Color(255, 255, 255));
+        manage_user_panel.setForeground(new java.awt.Color(0, 0, 0));
+        manage_user_panel.setPreferredSize(new java.awt.Dimension(750, 450));
+
+        user_list_panel.setBackground(new java.awt.Color(0, 0, 0));
+        user_list_panel.setForeground(new java.awt.Color(0, 0, 0));
+        user_list_panel.setPreferredSize(new java.awt.Dimension(775, 423));
+
+        javax.swing.GroupLayout user_list_panelLayout = new javax.swing.GroupLayout(user_list_panel);
+        user_list_panel.setLayout(user_list_panelLayout);
+        user_list_panelLayout.setHorizontalGroup(
+            user_list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 745, Short.MAX_VALUE)
+        );
+        user_list_panelLayout.setVerticalGroup(
+            user_list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 423, Short.MAX_VALUE)
+        );
+
+        manage_user_panel.addTab("User List", user_list_panel);
+
+        register_user_panel.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout register_user_panelLayout = new javax.swing.GroupLayout(register_user_panel);
+        register_user_panel.setLayout(register_user_panelLayout);
+        register_user_panelLayout.setHorizontalGroup(
+            register_user_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 745, Short.MAX_VALUE)
+        );
+        register_user_panelLayout.setVerticalGroup(
+            register_user_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 423, Short.MAX_VALUE)
+        );
+
+        manage_user_panel.addTab("Registration\n", register_user_panel);
+
+        dashboard.add(manage_user_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        home_panel.setBackground(new java.awt.Color(0, 0, 0));
+        home_panel.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout home_panelLayout = new javax.swing.GroupLayout(home_panel);
+        home_panel.setLayout(home_panelLayout);
+        home_panelLayout.setHorizontalGroup(
+            home_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
+        home_panelLayout.setVerticalGroup(
+            home_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        dashboard.add(home_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
+
+        overall.add(dashboard, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(overall, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void changeColor(JPanel hover, Color rand) {
+        hover.setBackground(rand);
+    }
+
+    public void changeFontColor(JLabel hover, Color rand) {
+        hover.setForeground(rand);
+    }
+
+    private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
+        changeColor(btnClose, new Color(255, 105, 180));
+    }//GEN-LAST:event_btnCloseMouseEntered
+
+    private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
+        changeColor(btnClose, new Color(0, 0, 0));
+    }//GEN-LAST:event_btnCloseMouseExited
+
+    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnCloseMouseClicked
+
+    private void btnMinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseEntered
+        changeColor(btnMin, new Color(239, 183, 183, 255));
+    }//GEN-LAST:event_btnMinMouseEntered
+
+    private void btnMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseExited
+        changeColor(btnMin, new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMinMouseExited
+
+    private void btnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_btnMinMouseClicked
+
+    private void btnUserManagementMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserManagementMouseEntered
+        changeColor(userManagementLine, new Color(255, 165, 0, 255));
+        btnUserManagement.setToolTipText("User Management");
+    }//GEN-LAST:event_btnUserManagementMouseEntered
+
+    private void btnUserManagementMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserManagementMouseExited
+        changeColor(userManagementLine, new Color(255, 255, 255));
+    }//GEN-LAST:event_btnUserManagementMouseExited
+
+    private void btnUserManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserManagementMouseClicked
+        this.hidePanel();
+        this.manage_user_panel.setVisible(true);
+    }//GEN-LAST:event_btnUserManagementMouseClicked
+
+    private void btnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseEntered
+        this.changeFontColor(lblHome, new Color(255, 255, 255));
+    }//GEN-LAST:event_btnHomeMouseEntered
+
+    private void btnHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseClicked
+        this.home_panel.setVisible(true);
+        this.hidePanel();
+    }//GEN-LAST:event_btnHomeMouseClicked
+
+    private void btnHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseExited
+        this.changeFontColor(lblHome, new Color(239, 183, 183, 255));
+    }//GEN-LAST:event_btnHomeMouseExited
+
+    private void btnApptManagementMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApptManagementMouseEntered
+        changeColor(apptManagementLine, new Color(255, 105, 180));
+        btnApptManagement.setToolTipText("Appointment Management");
+    }//GEN-LAST:event_btnApptManagementMouseEntered
+
+    private void btnApptManagementMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApptManagementMouseExited
+        changeColor(apptManagementLine, new Color(255, 255, 255));
+    }//GEN-LAST:event_btnApptManagementMouseExited
+
+    private void btnApptManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApptManagementMouseClicked
+        this.hidePanel();
+        this.manage_appt_panel.setVisible(true);
+    }//GEN-LAST:event_btnApptManagementMouseClicked
+
+    private void btnPaymentManagementMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPaymentManagementMouseEntered
+        changeColor(paymentManagementLine, new Color(255, 255, 0, 255));
+        btnPaymentManagement.setToolTipText("Payment Management");
+    }//GEN-LAST:event_btnPaymentManagementMouseEntered
+
+    private void btnPaymentManagementMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPaymentManagementMouseExited
+        changeColor(paymentManagementLine, new Color(255, 255, 255));
+    }//GEN-LAST:event_btnPaymentManagementMouseExited
+
+    private void btnPaymentManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPaymentManagementMouseClicked
+        this.hidePanel();
+        this.manage_payment_panel.setVisible(true);
+    }//GEN-LAST:event_btnPaymentManagementMouseClicked
+
+    private void btnLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseEntered
+        changeColor(logoutLine, new Color(247, 78, 105));
+        btnLogout.setToolTipText("Logout");
+    }//GEN-LAST:event_btnLogoutMouseEntered
+
+    private void btnLogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseExited
+        changeColor(logoutLine, new Color(255, 255, 255));
+    }//GEN-LAST:event_btnLogoutMouseExited
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        this.dispose();
+        //destroy session Code.
+        login lgPage = new login();
+        lgPage.setVisible(true);
+    }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseClicked
+
+    }//GEN-LAST:event_btnUpdateMouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -73,11 +604,48 @@ public class manager_mm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new manager_mm().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel apptManagement;
+    private javax.swing.JPanel apptManagementLine;
+    private javax.swing.JPanel appt_list_panel;
+    private javax.swing.JLabel btnApptManagement;
+    private javax.swing.JPanel btnClose;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JPanel btnHome;
+    private javax.swing.JLabel btnLogout;
+    private javax.swing.JPanel btnMin;
+    private javax.swing.JLabel btnPaymentManagement;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel btnUserManagement;
+    private javax.swing.JPanel create_appt_panel;
+    private javax.swing.JPanel dashboard;
+    private javax.swing.JPanel header;
+    private javax.swing.JPanel header_icon;
+    private javax.swing.JPanel home_panel;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblHome;
+    private javax.swing.JLabel lblMin;
+    private javax.swing.JPanel logout;
+    private javax.swing.JPanel logoutLine;
+    private javax.swing.JTabbedPane manage_appt_panel;
+    private javax.swing.JTabbedPane manage_payment_panel;
+    private javax.swing.JTabbedPane manage_user_panel;
+    private javax.swing.JPanel overall;
+    private javax.swing.JPanel paymentManagement;
+    private javax.swing.JPanel paymentManagementLine;
+    private javax.swing.JTable paymentTable;
+    private javax.swing.JPanel register_user_panel;
+    private javax.swing.JPanel sidemenu;
+    private javax.swing.JPanel sidemenu_icon;
+    private javax.swing.JPanel userManagement;
+    private javax.swing.JPanel userManagementLine;
+    private javax.swing.JPanel user_list_panel;
+    private javax.swing.JPanel view_payment_record;
     // End of variables declaration//GEN-END:variables
 }

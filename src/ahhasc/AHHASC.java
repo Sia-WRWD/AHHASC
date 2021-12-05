@@ -6,6 +6,7 @@
 package ahhasc;
 
 import java.io.IOException;
+import view.manager_mm;
 
 /**
  *
@@ -17,7 +18,8 @@ public class AHHASC {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        // TODO code application logic here
+        manager_mm mmm = new manager_mm();
+        mmm.setVisible(true);
     }
     
 }
