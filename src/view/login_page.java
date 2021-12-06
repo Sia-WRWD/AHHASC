@@ -5,10 +5,17 @@
  */
 package view;
 
+import common.fetch_data;
 import common.login;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -19,6 +26,8 @@ public class login_page extends javax.swing.JFrame {
 
     String username, password, role;
     boolean isAuthorized = false;
+    ArrayList<String> userCacheDataList;
+    String[] userCacheData;
 
     /**
      * Creates new form login2
@@ -250,7 +259,12 @@ public class login_page extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMinMouseExited
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        System.exit(0);
+        if (JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Leave?", "Goodbye? :(", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Stay Safe and Goodbye Now! :')", "Goodbye", JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0); //Exit 
+        } else {
+            //Remain in Application
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
@@ -277,9 +291,34 @@ public class login_page extends javax.swing.JFrame {
         this.authenticateUser();
 
         if (this.isAuthorized == true) {
-            System.out.println("Success");
+
+            fetch_data fd = new fetch_data();
+            try {
+                this.userCacheDataList = fd.fetchSession();
+                this.userCacheData = userCacheDataList.toArray(new String[0]);
+                this.role = userCacheData[2];
+            } catch (IOException ex) {
+                Logger.getLogger(login_page.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            if (this.role.equals("Manager")) {
+                JOptionPane.showMessageDialog(null, "Welcome Back " + this.role + " " + this.username + "!", "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+                try {
+                    manager_mm mmm = new manager_mm();
+                    mmm.setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(login_page.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Welcome Back " + this.role + " " + this.username, "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+                technician_mm tmm = new technician_mm();
+                tmm.setVisible(true);
+            }
+
         } else {
-            System.out.println("Fail");
+            JOptionPane.showMessageDialog(null, "Your Username or Password is False, Please Try Again!", "Login Failed", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginMouseClicked
 

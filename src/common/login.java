@@ -71,7 +71,7 @@ public class login {
         }
     }
     
-    private boolean logout() {
+    public boolean logout() {
         try {
             saveDir = System.getProperty("user.dir") + "/src/database/";
             File cache = new File(saveDir + "user_cache.txt");
