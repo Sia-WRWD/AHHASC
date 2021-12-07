@@ -694,7 +694,7 @@
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="0">
                             <Column editable="false" title="Feedback ID" type="java.lang.Object"/>
-                            <Column editable="false" title="Client ID" type="java.lang.Object"/>
+                            <Column editable="false" title="Appointment ID" type="java.lang.Object"/>
                             <Column editable="true" title="Feedback Content" type="java.lang.Object"/>
                             <Column editable="true" title="Feedback Date" type="java.lang.Object"/>
                             <Column editable="false" title="Updated By" type="java.lang.Object"/>
@@ -997,12 +997,12 @@
                               <Table columnCount="9" rowCount="0">
                                 <Column editable="false" title="Appt ID" type="java.lang.Object"/>
                                 <Column editable="false" title="Client ID" type="java.lang.Object"/>
-                                <Column editable="false" title="Feedback ID" type="java.lang.Object"/>
-                                <Column editable="true" title="Technician ID" type="java.lang.Object"/>
                                 <Column editable="true" title="Room No" type="java.lang.Object"/>
                                 <Column editable="true" title="Appt Date" type="java.lang.Object"/>
+                                <Column editable="false" title="Feedback ID" type="java.lang.Object"/>
+                                <Column editable="true" title="Technician ID" type="java.lang.Object"/>
+                                <Column editable="true" title="Payment ID" type="java.lang.Object"/>
                                 <Column editable="true" title="Job Status" type="java.lang.Object"/>
-                                <Column editable="true" title="Pay Status" type="java.lang.Object"/>
                                 <Column editable="false" title="Created By" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -2388,13 +2388,62 @@
                             <Column editable="false" title="Appt ID" type="java.lang.Object"/>
                             <Column editable="false" title="Client ID" type="java.lang.Object"/>
                             <Column editable="false" title="Feedback ID" type="java.lang.Object"/>
-                            <Column editable="true" title="Technician ID" type="java.lang.Object"/>
-                            <Column editable="true" title="Room No" type="java.lang.Object"/>
-                            <Column editable="true" title="Appt Date" type="java.lang.Object"/>
-                            <Column editable="true" title="Job Status" type="java.lang.Object"/>
-                            <Column editable="true" title="Pay Status" type="java.lang.Object"/>
+                            <Column editable="false" title="Technician ID" type="java.lang.Object"/>
+                            <Column editable="false" title="Room No" type="java.lang.Object"/>
+                            <Column editable="false" title="Appt Date" type="java.lang.Object"/>
+                            <Column editable="false" title="Job Status" type="java.lang.Object"/>
+                            <Column editable="false" title="Pay Status" type="java.lang.Object"/>
                             <Column editable="false" title="Created By" type="java.lang.Object"/>
                           </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
                         </Property>
                         <Property name="rowHeight" type="int" value="20"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">

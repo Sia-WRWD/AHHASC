@@ -5,12 +5,15 @@
  */
 package view;
 
+import common.fetch_data;
+import common.login;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,7 +24,8 @@ import javax.swing.table.DefaultTableModel;
 public class manager_mm extends javax.swing.JFrame {
 
     boolean x = true;
-
+    fetch_data fd = new fetch_data();
+    ArrayList<String> userData = new ArrayList<String>();
     /**
      * Creates new form manager_mm
      */
@@ -30,8 +34,15 @@ public class manager_mm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.hideMainPanels();
         this.home_panel.setVisible(true);
+        this.setData();
     }
 
+    public void setData() throws IOException {
+        this.userData = this.fd.fetchUserData();
+        System.out.println(this.userData);
+        
+    }
+    
     public void hideMainPanels() {
         this.home_panel.setVisible(false);
         this.manage_user_panel.setVisible(false);
@@ -509,7 +520,7 @@ public class manager_mm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Feedback ID", "Client ID", "Feedback Content", "Feedback Date", "Updated By"
+                "Feedback ID", "Appointment ID", "Feedback Content", "Feedback Date", "Updated By"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -609,11 +620,11 @@ public class manager_mm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Appt ID", "Client ID", "Feedback ID", "Technician ID", "Room No", "Appt Date", "Job Status", "Pay Status", "Created By"
+                "Appt ID", "Client ID", "Room No", "Appt Date", "Feedback ID", "Technician ID", "Payment ID", "Job Status", "Created By"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true, true, true, false
+                false, false, true, true, false, true, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1057,7 +1068,7 @@ public class manager_mm extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true, true, true, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1101,7 +1112,14 @@ public class manager_mm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseMouseExited
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        System.exit(0);
+        if (JOptionPane.showConfirmDialog(null, "Are You Sure You Want to Log Out?", "Goodbye? :(", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Stay Safe and Goodbye Now! :')", "Goodbye", JOptionPane.INFORMATION_MESSAGE);
+            login lg = new login();
+            lg.logout();
+            System.exit(0); //Exit 
+        } else {
+            //Remain in Application
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnMinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseEntered
@@ -1136,8 +1154,8 @@ public class manager_mm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeMouseEntered
 
     private void btnHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseClicked
-        this.home_panel.setVisible(true);
         this.hideMainPanels();
+        this.home_panel.setVisible(true);
     }//GEN-LAST:event_btnHomeMouseClicked
 
     private void btnHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseExited
@@ -1183,7 +1201,8 @@ public class manager_mm extends javax.swing.JFrame {
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
         this.dispose();
-        //destroy session Code.
+        login lg = new login();
+        lg.logout();
         login_page lgPage = new login_page();
         lgPage.setVisible(true);
     }//GEN-LAST:event_btnLogoutMouseClicked
@@ -1294,7 +1313,7 @@ public class manager_mm extends javax.swing.JFrame {
         tfCreateRoomNo.setText("");
         tfCreateApptDate.setText("");
     }
-    
+
     /**
      * @param args the command line arguments
      */
