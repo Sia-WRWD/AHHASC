@@ -7,6 +7,7 @@ package common;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -36,7 +37,7 @@ abstract public class input_validation {
         String msg = "Invalid username! Username can only consist of letters, numbers and certain escaped symbols.";
         boolean match = input.matches(regex);
         if (!match && !"".equals(input)) {
-            // JOptionPane.showMessageDialog(null, msg, "Error: Username Validation Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg, "Error: Username Validation Error", JOptionPane.WARNING_MESSAGE);
             // txt.setBackground(new Color(143, 168, 50));
             return false;
         }
@@ -45,8 +46,8 @@ abstract public class input_validation {
     }
 
     // Password Validation
-    public boolean passwordValidation(String text) {
-        String input = text;
+    public boolean passwordValidation(String password) {
+        String input = password;
         String regex = "^[-a-zA-Z0-9!@#$%^&*()\\{\\}\\[\\]\"\';\\\\/?|.,><~`_+=]+";
         String msg = "Invalid password! Password can only consist of letters, numbers and certain escaped symbols.";
         boolean match = input.matches(regex);
@@ -82,7 +83,7 @@ abstract public class input_validation {
         String msg = "Invalid email address! Email must follw the format of xxxxx@xxx.xxx";
         boolean match = input.matches(regex);
         if (!match && !"".equals(input)) {
-            // JOptionPane.showMessageDialog(null, msg, "Error: Email Validation Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg, "Error: Email Validation Error", JOptionPane.WARNING_MESSAGE);
             // txt.setBackground(new Color(143, 168, 50));
             return false;
         }
@@ -97,7 +98,7 @@ abstract public class input_validation {
         String msg = "Invalid name! Name can only consist of letters and spacing";
         boolean match = input.matches(regex);
         if (!match && !"".equals(input)) {
-            // JOptionPane.showMessageDialog(null, msg, "Error: Name Validation Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg, "Error: Name Validation Error", JOptionPane.WARNING_MESSAGE);
             // txt.setBackground(new Color(143, 168, 50));
             return false;
         }
@@ -112,7 +113,7 @@ abstract public class input_validation {
         String msg = "Invalid address! Address can only consist of letters, numbers, spacing and certain symbols";
         boolean match = input.matches(regex);
         if (!match && !"".equals(input)) {
-            // JOptionPane.showMessageDialog(null, msg, "Error: Address Validation Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg, "Error: Address Validation Error", JOptionPane.WARNING_MESSAGE);
             // txt.setBackground(new Color(143, 168, 50));
             return false;
         }
@@ -127,7 +128,7 @@ abstract public class input_validation {
         String msg = "Invalid Contact Number! Contact Number must follow the format of 000-0000000";
         boolean match = input.matches(regex);
         if (!match && !"".equals(input)) {
-            // JOptionPane.showMessageDialog(null, msg, "Error: Contact Number Validation Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg, "Error: Contact Number Validation Error", JOptionPane.WARNING_MESSAGE);
             // txt.setBackground(new Color(143, 168, 50));
             return false;
         }

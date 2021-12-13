@@ -1,2 +1,3 @@
 Cus000001|Sia|011-3211111|KL|sia@mail.com|Female|false
 Cus000002|Ryan|011-3211111|KL|lim@mail.com|Male|false
+Cus000003|Ryan|011-1111111|test|lim@mail.com|Male|false

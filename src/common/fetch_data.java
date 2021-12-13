@@ -42,8 +42,7 @@ public class fetch_data {
         BufferedReader br = new BufferedReader(fr);
 
         String result;
-        ArrayList<String> userData = new ArrayList<String>();
-
+        ArrayList<String[]> userData = new ArrayList<String[]>();
         while ((result = br.readLine()) != null) {
             String[] fields = result.split("\\|");
             String userID = fields[0];
@@ -54,6 +53,9 @@ public class fetch_data {
             String userEmail = fields[6];
             String userGender = fields[7];
             String userRole = fields[8];
+            
+            String[] tmpArr = {userID, userUsername, userName, userPhoneNumber, userAddress, userEmail, userGender, userRole};
+            userData.add(tmpArr);
         }
         br.close();
         fr.close();

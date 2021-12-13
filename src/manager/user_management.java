@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.util.*;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -39,90 +40,100 @@ public class user_management extends input_validation {
     private int mouseY;
     
     public user_management() {
-        /*
-        firstNameText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().nameValidation(((JTextField) input));
-            }
-        });
-        lastNameText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().nameValidation(((JTextField) input));
-            }
-        });
-        genderText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().genderValidation(((JTextField) input));
-            }
-        });
-        addressText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().addressValidation(((JTextArea) input));
-            }
-        });
-        emailText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().emailValidation(((JTextField) input));
-            }
-        });
-        contactText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().contactValidation(((JTextField) input));
-            }
-        });
-        dobText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().dobValidation(((JTextField) input));
-            }
-        });
-        usernameText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().usernameValidation(((JTextField) input));
-            }
-        });
-        passwordText.setInputVerifier(new InputVerifier() {
-            public boolean verify(JComponent input) {
-                return new InputValidation().passwordValidation(((JTextField) input));
-            }
-        });
-        */
     }
     
-    private void emptyFields() throws Exception {
-        /*
-        if ("".equals(firstNameText.getText())) {
-            throw new Exception("Empty First Name");
+    public boolean validateClientFields(JTextField name, JTextField email, JTextField phone, JTextArea address) {
+        boolean validation = true;
+        
+        if (!this.nameValidation(name.getText())) {
+            validation = false;
+            name.setBackground(new Color(143, 168, 50));
+        } else {
+            name.setBackground(new Color(0, 0, 0));
         }
-        if ("".equals(lastNameText.getText())) {
-            throw new Exception("Empty Last Name");
+        
+        if (!this.emailValidation(email.getText())) {
+            validation = false;
+            email.setBackground(new Color(143, 168, 50));
+        } else {
+            email.setBackground(new Color(0, 0, 0));
         }
-        if ("".equals(addressText.getText())) {
-            throw new Exception("Empty Address");
+        
+        if (!this.contactValidation(phone.getText())) {
+            validation = false;
+            phone.setBackground(new Color(143, 168, 50));
+        } else {
+            phone.setBackground(new Color(0, 0, 0));
         }
-        if ("".equals(emailText.getText())) {
-            throw new Exception("Empty Address");
-        }
-        if ("".equals(contactText.getText())) {
-            throw new Exception("Empty Contact Number");
-        }
-        if ("".equals(dobText.getText())) {
-            throw new Exception("Empty Date of Birth");
-        }
-        if ("".equals(genderText.getText())) {
-            throw new Exception("Empty Gender");
-        }
-        if ("".equals(usernameText.getText())) {
-            throw new Exception("Empty Username");
-        }
-        if ("".equals(String.valueOf(passwordText.getPassword()))) {
-            throw new Exception("Empty Password");
-        }
-        if ("".equals(String.valueOf(repasswordText.getPassword()))) {
-            throw new Exception("Empty Retype Password");
-        }
-        */
+        
+        if (!this.addressValidation(address.getText())) {
+            validation = false;
+            address.setBackground(new Color(143, 168, 50));
+        } else {
+            address.setBackground(new Color(0, 0, 0));
+        }    
+        
+        
+        return validation;
+        
     }
     
+    public boolean validateUserFields(JTextField username, JTextField name, JTextField email, JTextField phone, JTextArea address, String role_text) {
+        boolean validation = true;
+        
+        this.set_role(role_text);
+        
+        
+        if (!this.usernameValidation(username.getText())) {
+            validation = false;     
+            if (usernameValidator(username.getText())) {
+                validation = false;
+                JOptionPane.showMessageDialog(null, "Username is already taken!", "Username taken", JOptionPane.WARNING_MESSAGE);
+            }
+            
+            username.setBackground(new Color(143, 168, 50));
+        } else {
+            if (usernameValidator(username.getText())) {
+                validation = false;
+                JOptionPane.showMessageDialog(null, "Username is already taken!", "Username taken", JOptionPane.WARNING_MESSAGE);
+                username.setBackground(new Color(143, 168, 50));
+            } else {
+                username.setBackground(new Color(0, 0, 0));
+            }
+        }
+        
+        if (!this.nameValidation(name.getText())) {
+            validation = false;
+            name.setBackground(new Color(143, 168, 50));
+        } else {
+            name.setBackground(new Color(0, 0, 0));
+        }
+        
+        if (!this.emailValidation(email.getText())) {
+            validation = false;
+            email.setBackground(new Color(143, 168, 50));
+        } else {
+            email.setBackground(new Color(0, 0, 0));
+        }
+        
+        if (!this.contactValidation(phone.getText())) {
+            validation = false;
+            phone.setBackground(new Color(143, 168, 50));
+        } else {
+            phone.setBackground(new Color(0, 0, 0));
+        }
+        
+        if (!this.addressValidation(address.getText())) {
+            validation = false;
+            address.setBackground(new Color(143, 168, 50));
+        } else {
+            address.setBackground(new Color(0, 0, 0));
+        }    
+        
+        
+        return validation;
+        
+    }
     
 
     private boolean similarPassword(String currPass, String comparePass) {       
@@ -161,22 +172,6 @@ public class user_management extends input_validation {
         
         return filename;
     }
-    
-
-    private void clearInput() {
-        /*
-        firstNameText.setText("");
-        lastNameText.setText("");
-        addressText.setText("");
-        emailText.setText("");
-        dobText.setText("");
-        genderText.setText("");
-        contactText.setText("");
-        usernameText.setText("");
-        passwordText.setText("");
-        repasswordText.setText("");
-        */
-    }
 
     private void usersIncrementor() {
         String[] matchedID = null;
@@ -210,56 +205,6 @@ public class user_management extends input_validation {
             JOptionPane.showMessageDialog(null, ex);
             JOptionPane.showMessageDialog(null, "Invalid input! Users ID can only consist of numbers", "Invalid input type!", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    private void highlightEmpty() {
-        /*
-        if ("".equals(firstNameText.getText())) {
-            firstNameLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(lastNameText.getText())) {
-            lastNameLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(addressText.getText())) {
-            addressLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(emailText.getText())) {
-            emailLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(contactText.getText())) {
-            contactLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(dobText.getText())) {
-            dobLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(genderText.getText())) {
-            genderLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(usernameText.getText())) {
-            usernameLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(String.valueOf(passwordText.getPassword()))) {
-            passwordLbl.setForeground(Color.yellow);
-        }
-        if ("".equals(String.valueOf(repasswordText.getPassword()))) {
-            repasswordLbl.setForeground(Color.yellow);
-        }
-        */
-    }
-
-    private void deHighlightEmpty() {
-        /*
-        firstNameLbl.setForeground(fgtxt);
-        lastNameLbl.setForeground(fgtxt);
-        addressLbl.setForeground(fgtxt);
-        emailLbl.setForeground(fgtxt);
-        contactLbl.setForeground(fgtxt);
-        dobLbl.setForeground(fgtxt);
-        genderLbl.setForeground(fgtxt);
-        usernameLbl.setForeground(fgtxt);
-        passwordLbl.setForeground(fgtxt);
-        repasswordLbl.setForeground(fgtxt);
-        */
     }
 
     private boolean usernameValidator(String username) {
@@ -297,17 +242,6 @@ public class user_management extends input_validation {
             this.set_role(role_text);
             usersIncrementor();
             userID = dc.format(newUserID);
-            // emptyFields();
-            
-            if (this.role != "Customer") { 
-                if (usernameValidator(username_text)) {
-                    throw new Exception("Username Taken");
-                }
-
-                if (!similarPassword(password_text, repassword_text)) {
-                    throw new Exception("Password Mismatch");
-                }
-            }
 
             String name = name_text;
             String address = address_text;
@@ -351,13 +285,6 @@ public class user_management extends input_validation {
 
             }
         } catch (Exception e) {
-            highlightEmpty();
-            if (usernameValidator(username_text)) {
-                JOptionPane.showMessageDialog(null, "Username is already taken!", "Username taken", JOptionPane.WARNING_MESSAGE);
-            }
-            if (!similarPassword(password_text, repassword_text)) {
-                JOptionPane.showMessageDialog(null, "Password is not matching!", "Password mismatch!", JOptionPane.WARNING_MESSAGE);
-            }
             JOptionPane.showMessageDialog(null, "Invalid input! Please check your input to proceed.", "Invalid insertion detected!", JOptionPane.WARNING_MESSAGE);
 
         }
@@ -366,7 +293,7 @@ public class user_management extends input_validation {
     
     // For Testing Purposes 
     public static void main(String[] args) {
-        user_management user = new user_management();
+        // user_management user = new user_management();
         // User Registrtion Test
         // user.addUserInformation("Sia123", "123", "123", "Sia", "sia@mail.com", "011-3211111", "KL", "Female", "Technician");
         

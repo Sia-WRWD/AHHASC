@@ -7,6 +7,7 @@ package view;
 
 import common.fetch_data;
 import common.login;
+import manager.user_management;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,7 +27,9 @@ public class manager_mm extends javax.swing.JFrame {
 
     boolean x = true;
     fetch_data fd = new fetch_data();
-    ArrayList<String> userData = new ArrayList<String>();
+    ArrayList<String[]> userData = new ArrayList<String[]>();
+    DefaultTableModel user_model;
+    String[] user_column = {"UserID", "Username", "Name", "Phone Number", "Address", "Email", "Gender", "Role"};
     /**
      * Creates new form manager_mm
      */
@@ -34,13 +38,20 @@ public class manager_mm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.hideMainPanels();
         this.home_panel.setVisible(true);
-        this.setData();
+        this.setUserData();
     }
 
-    public void setData() throws IOException {
-        this.userData = this.fd.fetchUserData();
-        System.out.println(this.userData);
+    public void setUserData() throws IOException {
+        this.user_model = new DefaultTableModel(new Object[][]{}, this.user_column);
         
+        this.userTable.setModel(this.user_model);
+        this.userData = this.fd.fetchUserData(); 
+        int list_size = this.userData.size();
+        
+        for(int row = 0; row < list_size; row++) {
+            String[] row_data = this.userData.get(row);
+            this.user_model.addRow(row_data);
+        }
     }
     
     public void hideMainPanels() {
@@ -531,7 +542,6 @@ public class manager_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        feedbackTable.setRowHeight(20);
         jScrollPane7.setViewportView(feedbackTable);
 
         manage_feedback_panel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 360));
@@ -580,7 +590,6 @@ public class manager_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        paymentTable.setRowHeight(20);
         jScrollPane2.setViewportView(paymentTable);
 
         view_payment_record.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 340));
@@ -631,7 +640,6 @@ public class manager_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        apptTable.setRowHeight(20);
         jScrollPane3.setViewportView(apptTable);
 
         appt_list_panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 730, 350));
@@ -743,15 +751,21 @@ public class manager_mm extends javax.swing.JFrame {
                 "User ID", "Username", "Name", "Phone Number", "Address", "Email", "Gender", "Role"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, true, false, true, true, false, false, true
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        userTable.setRowHeight(20);
         jScrollPane4.setViewportView(userTable);
 
         user_list_panel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 330));
@@ -806,7 +820,6 @@ public class manager_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        userTable1.setRowHeight(20);
         jScrollPane5.setViewportView(userTable1);
 
         client_list_panel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 330));
@@ -856,6 +869,11 @@ public class manager_mm extends javax.swing.JFrame {
         btnRegisterClient.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnRegisterClient.setForeground(new java.awt.Color(0, 204, 204));
         btnRegisterClient.setText("Register");
+        btnRegisterClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterClientActionPerformed(evt);
+            }
+        });
         client_register_panel.add(btnRegisterClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 190, 40));
 
         lblClientAddress.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -934,6 +952,11 @@ public class manager_mm extends javax.swing.JFrame {
         btnRegisterUser.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnRegisterUser.setForeground(new java.awt.Color(0, 204, 204));
         btnRegisterUser.setText("Register");
+        btnRegisterUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterUserActionPerformed(evt);
+            }
+        });
         staff_register_panel.add(btnRegisterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 190, 40));
 
         lblUserAddress.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -1016,7 +1039,12 @@ public class manager_mm extends javax.swing.JFrame {
         cbRole.setBackground(new java.awt.Color(0, 0, 0));
         cbRole.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbRole.setForeground(java.awt.Color.white);
-        cbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Technician", "Manager" }));
+        cbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Technician", "Management" }));
+        cbRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbRoleActionPerformed(evt);
+            }
+        });
         staff_register_panel.add(cbRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 130, 30));
 
         register_panel_content.add(staff_register_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 320));
@@ -1075,7 +1103,6 @@ public class manager_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        ongoingApptTable.setRowHeight(20);
         jScrollPane8.setViewportView(ongoingApptTable);
 
         home_panel.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 730, 370));
@@ -1286,6 +1313,40 @@ public class manager_mm extends javax.swing.JFrame {
     private void btnSettingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingsMouseExited
         changeColor(settingsLine, new Color(255, 255, 255));
     }//GEN-LAST:event_btnSettingsMouseExited
+
+    private void btnRegisterClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterClientActionPerformed
+        // TODO add your handling code here:
+        user_management user = new user_management();
+        
+        if(user.validateClientFields(tfClientName, tfClientEmail, tfClientPhoneNumber, tfClientAddress)) {
+            user.addUserInformation(null, null, null, tfClientName.getText(), tfClientEmail.getText(), tfClientPhoneNumber.getText(), tfClientAddress.getText(), (String) cbClientGender.getSelectedItem(), "Customer");
+            
+            tfClientName.setText("");
+            tfClientEmail.setText("");
+            tfClientPhoneNumber.setText("");
+            tfClientAddress.setText("");
+        }
+    }//GEN-LAST:event_btnRegisterClientActionPerformed
+
+    private void btnRegisterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterUserActionPerformed
+        // TODO add your handling code here:
+        user_management user = new user_management();
+        
+        if(user.validateUserFields(tfUsername, tfUserName, tfUserEmail, tfUserPhoneNumber, tfUserAddress, (String) cbRole.getSelectedItem())) {
+            user.addUserInformation(tfUsername.getText(), pfPassword.getText(), pfPassword.getText(), tfUserName.getText(), tfUserAddress.getText(), tfUserEmail.getText(), tfUserPhoneNumber.getText(), (String) cbUserGender.getSelectedItem(), (String) cbRole.getSelectedItem());
+            
+            tfUsername.setText("");
+            pfPassword.setText("");
+            tfUserName.setText("");
+            tfUserAddress.setText("");
+            tfUserEmail.setText("");
+            tfUserPhoneNumber.setText("");
+        }
+    }//GEN-LAST:event_btnRegisterUserActionPerformed
+
+    private void cbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbRoleActionPerformed
 
     //Reset Forms
     private void resetClientRegistrationForm() {
