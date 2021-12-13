@@ -1,3 +1,5 @@
 Us000001|Example Username|Example Password 1|Example Name|Example Email|Example Contact No.|Example Address|Example Gender|Technician|false
 Us000002|FY0123|123|Ryan|011-3211111|KL|ryan@mail.com|Male|Manager|false
 Us000003|Sia123|123|Sia|011-3211111|KL|sia@mail.com|Female|Technician|false
+Us000004|Irfan69|123|Irfan|011-3211111|KL|irfan@mail.com|Male|Admin|false
+Us000005|Prem96|123|Prem|011-3211111|KL|prem@mail.com|Female|Technician|false

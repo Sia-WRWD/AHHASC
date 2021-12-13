@@ -5,18 +5,41 @@
  */
 package view;
 
+import common.fetch_data;
 import common.login;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author chinojen7
  */
 public class technician_mm extends javax.swing.JFrame {
+
+    fetch_data fd = new fetch_data();
+    ArrayList<String[]> userData = new ArrayList<String[]>();
+    ArrayList<String[]> clientData = new ArrayList<String[]>();
+    ArrayList<String[]> apptData = new ArrayList<String[]>();
+    ArrayList<String[]> paymentData = new ArrayList<String[]>();
+    ArrayList<String[]> feedbackData = new ArrayList<String[]>();
+
+    DefaultTableModel user_model;
+    DefaultTableModel client_model;
+    DefaultTableModel appt_model;
+    DefaultTableModel payment_model;
+    DefaultTableModel feedback_model;
+
+    String[] user_column = {"User ID", "Username", "Name", "Phone Number", "Address", "Email", "Gender", "Role"};
+    String[] client_column = {"Client ID", "Name", "Phone Number", "Room No", "Email", "Gender"};
+    String[] appt_column = {"Appt ID", "Client ID", "Appt Date", "Room No", "Feedback ID", "Technician ID", "Payment ID", "Job Status", "Created By"};
+    String[] payment_column = {"Payment ID", "Appt ID", "Payment Date", "Payment Amount", "Payment Status"};
+    String[] feedback_column = {"Feedback ID", "Client ID", "Feedback Content", "Feedback Date"};
 
     /**
      * Creates new form technician_mm
@@ -37,12 +60,82 @@ public class technician_mm extends javax.swing.JFrame {
         this.personal_details_panel.setVisible(false);
     }
 
-    public void changeColor(JPanel hover, Color rand) {
-        hover.setBackground(rand);
+    public void setAllData() throws IOException {
+        this.setUserData();
+        this.setClientData();
+        this.setApptData();
+        this.setPaymentData();
+        this.setFeedbackData();
     }
 
-    public void changeFontColor(JLabel hover, Color rand) {
-        hover.setForeground(rand);
+    //Fetch User Data
+    public void setUserData() throws IOException {
+        this.user_model = new DefaultTableModel(new Object[][]{}, this.user_column);
+
+        this.userTable.setModel(this.user_model);
+        this.userData = this.fd.fetchUserData();
+        int list_size = this.userData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.userData.get(row);
+            this.user_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Client Data
+    public void setClientData() throws IOException {
+        this.client_model = new DefaultTableModel(new Object[][]{}, this.client_column);
+
+        this.clientTable.setModel(this.client_model);
+        this.clientData = this.fd.fetchClientData();
+        int list_size = this.clientData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.clientData.get(row);
+            this.client_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Appointment Data
+    public void setApptData() throws IOException {
+        this.appt_model = new DefaultTableModel(new Object[][]{}, this.appt_column);
+
+        this.apptTable.setModel(this.appt_model);
+        this.apptData = this.fd.fetchApptData();
+        int list_size = this.apptData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.apptData.get(row);
+            this.appt_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Payment Data
+    public void setPaymentData() throws IOException {
+        this.payment_model = new DefaultTableModel(new Object[][]{}, this.payment_column);
+
+        this.paymentTable.setModel(this.payment_model);
+        this.paymentData = this.fd.fetchTransactionData();
+        int list_size = this.paymentData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.paymentData.get(row);
+            this.payment_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Feedback Data
+    public void setFeedbackData() throws IOException {
+        this.feedback_model = new DefaultTableModel(new Object[][]{}, this.feedback_column);
+
+        this.feedbackTable.setModel(this.feedback_model);
+        this.feedbackData = this.fd.fetchFeedbackData();
+        int list_size = this.feedbackData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.feedbackData.get(row);
+            this.feedback_model.addRow(row_data);
+        }
     }
 
     /**
@@ -115,7 +208,7 @@ public class technician_mm extends javax.swing.JFrame {
         userTable = new javax.swing.JTable();
         client_list_panel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        userTable1 = new javax.swing.JTable();
+        clientTable = new javax.swing.JTable();
         home_panel = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         ongoingApptTable = new javax.swing.JTable();
@@ -678,10 +771,10 @@ public class technician_mm extends javax.swing.JFrame {
         jScrollPane5.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane5.setForeground(new java.awt.Color(51, 51, 51));
 
-        userTable1.setBackground(new java.awt.Color(255, 255, 255));
-        userTable1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        userTable1.setForeground(new java.awt.Color(0, 0, 0));
-        userTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clientTable.setBackground(new java.awt.Color(255, 255, 255));
+        clientTable.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        clientTable.setForeground(new java.awt.Color(0, 0, 0));
+        clientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -697,8 +790,8 @@ public class technician_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        userTable1.setRowHeight(20);
-        jScrollPane5.setViewportView(userTable1);
+        clientTable.setRowHeight(20);
+        jScrollPane5.setViewportView(clientTable);
 
         client_list_panel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 730, 400));
 
@@ -751,6 +844,14 @@ public class technician_mm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void changeColor(JPanel hover, Color rand) {
+        hover.setBackground(rand);
+    }
+
+    public void changeFontColor(JLabel hover, Color rand) {
+        hover.setForeground(rand);
+    }
 
     private void btnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseClicked
         this.setState(JFrame.ICONIFIED);
@@ -945,6 +1046,7 @@ public class technician_mm extends javax.swing.JFrame {
     private javax.swing.JLabel btnUserManagement;
     private javax.swing.JComboBox<String> cbCreateClient;
     private javax.swing.JComboBox<String> cbCreateTechnician;
+    private javax.swing.JTable clientTable;
     private javax.swing.JPanel client_list_panel;
     private javax.swing.JPanel create_appt_content;
     private javax.swing.JPanel create_appt_panel;
@@ -990,7 +1092,6 @@ public class technician_mm extends javax.swing.JFrame {
     private javax.swing.JPanel userManagement;
     private javax.swing.JPanel userManagementLine;
     private javax.swing.JTable userTable;
-    private javax.swing.JTable userTable1;
     private javax.swing.JPanel user_list_panel;
     private javax.swing.JPanel view_payment_record;
     // End of variables declaration//GEN-END:variables

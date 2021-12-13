@@ -42,7 +42,7 @@ public class fetch_data {
         BufferedReader br = new BufferedReader(fr);
 
         String result;
-        ArrayList<String> userData = new ArrayList<String>();
+        ArrayList<String[]> userData = new ArrayList<String[]>();
 
         while ((result = br.readLine()) != null) {
             String[] fields = result.split("\\|");
@@ -54,6 +54,9 @@ public class fetch_data {
             String userEmail = fields[6];
             String userGender = fields[7];
             String userRole = fields[8];
+
+            String[] tmpArr = {userID, userUsername, userName, userPhoneNumber, userAddress, userEmail, userGender, userRole};
+            userData.add(tmpArr);
         }
         br.close();
         fr.close();
@@ -61,63 +64,73 @@ public class fetch_data {
         return userData;
     }
 
-    public void fetchClientData() throws IOException {
+    public ArrayList fetchClientData() throws IOException {
         saveDir = System.getProperty("user.dir") + "\\src\\database\\customer_details.txt";
         File file = new File(saveDir);
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
 
         String result;
+        ArrayList<String[]> clientData = new ArrayList<String[]>();
 
         while ((result = br.readLine()) != null) {
             String[] fields = result.split("\\|");
             String customerID = fields[0];
             String customerName = fields[1];
-            String userPhoneNumber = fields[2];
-            String userAddress = fields[3];
-            String userEmail = fields[4];
-            String userGender = fields[5];
+            String customerPhoneNumber = fields[2];
+            String customerAddress = fields[3];
+            String customerEmail = fields[4];
+            String customerGender = fields[5];
 
-            System.out.println(Arrays.toString(fields));
+            String[] tempArr = {customerID, customerName, customerPhoneNumber, customerAddress, customerEmail, customerGender};
+            clientData.add(tempArr);
         }
         br.close();
         fr.close();
+
+        return clientData;
     }
 
-    public void fetchApptData() throws IOException {
+    public ArrayList fetchApptData() throws IOException {
         saveDir = System.getProperty("user.dir") + "\\src\\database\\appointment_details.txt";
         File file = new File(saveDir);
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
 
         String result;
+        ArrayList<String[]> apptData = new ArrayList<String[]>();
 
         while ((result = br.readLine()) != null) {
             String[] fields = result.split("\\|");
-            String appointmentID = fields[0];
-            String appointmentClientID = fields[1];
-            String appointmentRoomNo = fields[2];
-            String appointmentDate = fields[3];
-            String appointmentFeedbackID = fields[4];
-            String appointmentTechnicianID = fields[5];
-            String appointmentPaymentID = fields[6];
-            String appointmentJobStatus = fields[7];
-            String appointmentCreatedBy = fields[8];
+            String apptID = fields[0];
+            String apptClientID = fields[1];
+            String apptRoomNo = fields[2];
+            String apptDate = fields[3];
+            String apptFeedbackID = fields[4];
+            String apptTechnicianID = fields[5];
+            String apptPaymentID = fields[6];
+            String apptJobStatus = fields[7];
+            String apptCreatedBy = fields[8];
 
-            System.out.println(Arrays.toString(fields));
+            String[] tempArr = {apptID, apptClientID, apptRoomNo, apptDate, apptFeedbackID, apptTechnicianID, apptPaymentID,
+                                apptJobStatus, apptCreatedBy};
+            apptData.add(tempArr);
         }
         br.close();
         fr.close();
+
+        return apptData;
     }
 
-    public void fetchFeedbackData() throws IOException {
+    public ArrayList fetchFeedbackData() throws IOException {
         saveDir = System.getProperty("user.dir") + "\\src\\database\\feedback.txt";
         File file = new File(saveDir);
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
 
         String result;
-
+        ArrayList<String[]> feedbackData = new ArrayList<String[]>();
+        
         while ((result = br.readLine()) != null) {
             String[] fields = result.split("\\|");
             String feedbackID = fields[0];
@@ -125,32 +138,39 @@ public class fetch_data {
             String feedbackContent = fields[2];
             String feedbackDate = fields[3];
 
-            System.out.println(Arrays.toString(fields));
+            String[] tempArr = {feedbackID, clientID, feedbackContent, feedbackDate};
+            feedbackData.add(tempArr);
         }
         br.close();
         fr.close();
+        
+        return feedbackData;
     }
 
-    public void fetchTransactionData() throws IOException {
+    public ArrayList fetchTransactionData() throws IOException {
         saveDir = System.getProperty("user.dir") + "\\src\\database\\transaction.txt";
         File file = new File(saveDir);
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
 
         String result;
-
+        ArrayList<String[]> paymentData = new ArrayList<String[]>();
+        
         while ((result = br.readLine()) != null) {
             String[] fields = result.split("\\|");
             String paymentID = fields[0];
-            String paymentApptID = fields[2];
-            String paymentDate = fields[1];
+            String paymentApptID = fields[1];
+            String paymentDate = fields[2];
             String paymentAmount = fields[3];
             String paymentStatus = fields[4];
 
-            System.out.println(Arrays.toString(fields));
+            String[] tempArr = {paymentID, paymentApptID, paymentDate, paymentAmount, paymentStatus};
+            paymentData.add(tempArr);
         }
         br.close();
         fr.close();
+        
+        return paymentData;
     }
 
     public ArrayList fetchSession() throws IOException {
@@ -174,7 +194,7 @@ public class fetch_data {
         }
         br.close();
         fr.close();
-        
+
         return userCacheData;
     }
 

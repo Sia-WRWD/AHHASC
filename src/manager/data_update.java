@@ -25,7 +25,7 @@ import java.util.*;
  *
  * @author chinojen7
  */
-public class user_management extends input_validation {
+public class data_update extends input_validation {
     
     private String userID;
     private String saveDir; 
@@ -38,7 +38,7 @@ public class user_management extends input_validation {
     private int mouseX;
     private int mouseY;
     
-    public user_management() {
+    public data_update() {
         /*
         firstNameText.setInputVerifier(new InputVerifier() {
             public boolean verify(JComponent input) {
@@ -366,7 +366,7 @@ public class user_management extends input_validation {
     
     // For Testing Purposes 
     public static void main(String[] args) {
-        user_management user = new user_management();
+        data_update user = new data_update();
         // User Registrtion Test
         // user.addUserInformation("Sia123", "123", "123", "Sia", "sia@mail.com", "011-3211111", "KL", "Female", "Technician");
         

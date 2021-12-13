@@ -9,6 +9,6 @@ package common;
  *
  * @author chinojen7
  */
-public class view_appointment_details {
+public class update_feedback {
     
 }

@@ -11,11 +11,14 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import manager.data_deletion;
 
 /**
  *
@@ -23,9 +26,33 @@ import javax.swing.table.DefaultTableModel;
  */
 public class manager_mm extends javax.swing.JFrame {
 
-    boolean x = true;
     fetch_data fd = new fetch_data();
-    ArrayList<String> userData = new ArrayList<String>();
+    ArrayList<String[]> userData = new ArrayList<String[]>();
+    ArrayList<String[]> clientData = new ArrayList<String[]>();
+    ArrayList<String[]> apptData = new ArrayList<String[]>();
+    ArrayList<String[]> paymentData = new ArrayList<String[]>();
+    ArrayList<String[]> feedbackData = new ArrayList<String[]>();
+
+    DefaultTableModel user_model;
+    DefaultTableModel client_model;
+    DefaultTableModel appt_model;
+    DefaultTableModel payment_model;
+    DefaultTableModel feedback_model;
+
+    String[] user_column = {"User ID", "Username", "Name", "Phone Number", "Address", "Email", "Gender", "Role"};
+    String[] client_column = {"Client ID", "Name", "Phone Number", "Room No", "Email", "Gender"};
+    String[] appt_column = {"Appt ID", "Client ID", "Appt Date", "Room No", "Feedback ID", "Technician ID", "Payment ID", "Job Status", "Created By"};
+    String[] payment_column = {"Payment ID", "Appt ID", "Payment Date", "Payment Amount", "Payment Status"};
+    String[] feedback_column = {"Feedback ID", "Client ID", "Feedback Content", "Feedback Date"};
+
+    data_deletion dd = new data_deletion();
+
+    String userID, clientID, apptID;
+
+    boolean delUserResp;
+    boolean delClientResp;
+    boolean delApptResp;
+
     /**
      * Creates new form manager_mm
      */
@@ -34,15 +61,10 @@ public class manager_mm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.hideMainPanels();
         this.home_panel.setVisible(true);
-        this.setData();
+        this.setAllData();
+        this.setTableSelectionMode();
     }
 
-    public void setData() throws IOException {
-        this.userData = this.fd.fetchUserData();
-        System.out.println(this.userData);
-        
-    }
-    
     public void hideMainPanels() {
         this.home_panel.setVisible(false);
         this.manage_user_panel.setVisible(false);
@@ -55,6 +77,92 @@ public class manager_mm extends javax.swing.JFrame {
     public void hideRegisterPanels() {
         this.staff_register_panel.setVisible(false);
         this.client_register_panel.setVisible(false);
+    }
+
+    public void setTableSelectionMode() {
+        userTable.setSelectionMode(userTable.getSelectionModel().SINGLE_SELECTION);
+        clientTable.setSelectionMode(clientTable.getSelectionModel().SINGLE_SELECTION);
+        apptTable.setSelectionMode(apptTable.getSelectionModel().SINGLE_SELECTION);
+        paymentTable.setSelectionMode(paymentTable.getSelectionModel().SINGLE_SELECTION);
+        feedbackTable.setSelectionMode(feedbackTable.getSelectionModel().SINGLE_SELECTION);
+    }
+
+    public void setAllData() throws IOException {
+        this.setUserData();
+        this.setClientData();
+        this.setApptData();
+        this.setPaymentData();
+        this.setFeedbackData();
+    }
+
+    //Fetch User Data
+    public void setUserData() throws IOException {
+        this.user_model = new DefaultTableModel(new Object[][]{}, this.user_column);
+
+        this.userTable.setModel(this.user_model);
+        this.userData = this.fd.fetchUserData();
+        int list_size = this.userData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.userData.get(row);
+            this.user_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Client Data
+    public void setClientData() throws IOException {
+        this.client_model = new DefaultTableModel(new Object[][]{}, this.client_column);
+
+        this.clientTable.setModel(this.client_model);
+        this.clientData = this.fd.fetchClientData();
+        int list_size = this.clientData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.clientData.get(row);
+            this.client_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Appointment Data
+    public void setApptData() throws IOException {
+        this.appt_model = new DefaultTableModel(new Object[][]{}, this.appt_column);
+
+        this.apptTable.setModel(this.appt_model);
+        this.apptData = this.fd.fetchApptData();
+        int list_size = this.apptData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.apptData.get(row);
+            this.appt_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Payment Data
+    public void setPaymentData() throws IOException {
+        this.payment_model = new DefaultTableModel(new Object[][]{}, this.payment_column);
+
+        this.paymentTable.setModel(this.payment_model);
+        this.paymentData = this.fd.fetchTransactionData();
+        int list_size = this.paymentData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.paymentData.get(row);
+            this.payment_model.addRow(row_data);
+        }
+    }
+
+    //Fetch Feedback Data
+    public void setFeedbackData() throws IOException {
+        this.feedback_model = new DefaultTableModel(new Object[][]{}, this.feedback_column);
+
+        this.feedbackTable.setModel(this.feedback_model);
+        this.feedbackData = this.fd.fetchFeedbackData();
+        int list_size = this.feedbackData.size();
+
+        for (int row = 0; row < list_size; row++) {
+            String[] row_data = this.feedbackData.get(row);
+            this.feedback_model.addRow(row_data);
+        }
     }
 
     /**
@@ -133,9 +241,9 @@ public class manager_mm extends javax.swing.JFrame {
         btnUserDelete = new javax.swing.JButton();
         client_list_panel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        userTable1 = new javax.swing.JTable();
-        btnUserUpdate1 = new javax.swing.JButton();
-        btnUserDelete1 = new javax.swing.JButton();
+        clientTable = new javax.swing.JTable();
+        btnClientUpdate = new javax.swing.JButton();
+        btnClientDelete = new javax.swing.JButton();
         register_user_panel = new javax.swing.JPanel();
         register_panel_content = new javax.swing.JPanel();
         client_register_panel = new javax.swing.JPanel();
@@ -771,9 +879,9 @@ public class manager_mm extends javax.swing.JFrame {
         btnUserDelete.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnUserDelete.setForeground(new java.awt.Color(0, 255, 255));
         btnUserDelete.setText("Delete");
-        btnUserDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserDeleteActionPerformed(evt);
+        btnUserDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUserDeleteMouseClicked(evt);
             }
         });
         user_list_panel.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 140, 40));
@@ -787,10 +895,10 @@ public class manager_mm extends javax.swing.JFrame {
         jScrollPane5.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane5.setForeground(new java.awt.Color(51, 51, 51));
 
-        userTable1.setBackground(new java.awt.Color(255, 255, 255));
-        userTable1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        userTable1.setForeground(new java.awt.Color(0, 0, 0));
-        userTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clientTable.setBackground(new java.awt.Color(255, 255, 255));
+        clientTable.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        clientTable.setForeground(new java.awt.Color(0, 0, 0));
+        clientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -806,32 +914,32 @@ public class manager_mm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        userTable1.setRowHeight(20);
-        jScrollPane5.setViewportView(userTable1);
+        clientTable.setRowHeight(20);
+        jScrollPane5.setViewportView(clientTable);
 
         client_list_panel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 330));
 
-        btnUserUpdate1.setBackground(new java.awt.Color(51, 51, 51));
-        btnUserUpdate1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnUserUpdate1.setForeground(new java.awt.Color(0, 255, 255));
-        btnUserUpdate1.setText("Update");
-        btnUserUpdate1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnClientUpdate.setBackground(new java.awt.Color(51, 51, 51));
+        btnClientUpdate.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnClientUpdate.setForeground(new java.awt.Color(0, 255, 255));
+        btnClientUpdate.setText("Update");
+        btnClientUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnUserUpdate1MouseClicked(evt);
+                btnClientUpdateMouseClicked(evt);
             }
         });
-        client_list_panel.add(btnUserUpdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 140, 40));
+        client_list_panel.add(btnClientUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 140, 40));
 
-        btnUserDelete1.setBackground(new java.awt.Color(51, 51, 51));
-        btnUserDelete1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnUserDelete1.setForeground(new java.awt.Color(0, 255, 255));
-        btnUserDelete1.setText("Delete");
-        btnUserDelete1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserDelete1ActionPerformed(evt);
+        btnClientDelete.setBackground(new java.awt.Color(51, 51, 51));
+        btnClientDelete.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnClientDelete.setForeground(new java.awt.Color(0, 255, 255));
+        btnClientDelete.setText("Delete");
+        btnClientDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnClientDeleteMouseClicked(evt);
             }
         });
-        client_list_panel.add(btnUserDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 140, 40));
+        client_list_panel.add(btnClientDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 140, 40));
 
         manage_user_panel.addTab("Client List", client_list_panel);
 
@@ -1219,10 +1327,6 @@ public class manager_mm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUserUpdateMouseClicked
 
-    private void btnUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUserDeleteActionPerformed
-
     private void btnFeedbackManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFeedbackManagementMouseClicked
         this.hideMainPanels();
         this.manage_feedback_panel.setVisible(true);
@@ -1237,13 +1341,9 @@ public class manager_mm extends javax.swing.JFrame {
         changeColor(feedbackManagementLine, new Color(255, 255, 255));
     }//GEN-LAST:event_btnFeedbackManagementMouseExited
 
-    private void btnUserUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserUpdate1MouseClicked
+    private void btnClientUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientUpdateMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnUserUpdate1MouseClicked
-
-    private void btnUserDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDelete1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUserDelete1ActionPerformed
+    }//GEN-LAST:event_btnClientUpdateMouseClicked
 
     private void rbClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbClientMouseClicked
         if (rbClient.isSelected() == true) {
@@ -1286,6 +1386,54 @@ public class manager_mm extends javax.swing.JFrame {
     private void btnSettingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingsMouseExited
         changeColor(settingsLine, new Color(255, 255, 255));
     }//GEN-LAST:event_btnSettingsMouseExited
+
+    private void btnUserDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserDeleteMouseClicked
+
+        String saveDir = System.getProperty("user.dir") + "\\src\\database\\user_details.txt";
+        userID = String.valueOf(userTable.getValueAt(userTable.getSelectedRow(), 0));
+
+        if (JOptionPane.showConfirmDialog(null, "Are You Sure You Want Delete this User: " + userID, "Delete User? :(", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            this.delUserResp = dd.deleteData(saveDir, userID, 1, "\\|");
+            JOptionPane.showMessageDialog(null, "Deletion in Progess...", "Deleting", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            //Nothing Happens.
+        }
+
+        if (this.delUserResp == true) {
+            JOptionPane.showMessageDialog(null, "Successfully Deleted User: " + userID, "Delete Successful", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                this.setUserData();
+            } catch (IOException ex) {
+                Logger.getLogger(manager_mm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Something Went Wrong, Please Try Again Later!", "Something Went Wrong!", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnUserDeleteMouseClicked
+
+    private void btnClientDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientDeleteMouseClicked
+
+        String saveDir = System.getProperty("user.dir") + "\\src\\database\\customer_details.txt";
+        clientID = String.valueOf(clientTable.getValueAt(clientTable.getSelectedRow(), 0));
+
+        if (JOptionPane.showConfirmDialog(null, "Are You Sure You Want Delete this Customer: " + clientID, "Delete User? :(", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            this.delClientResp = dd.deleteData(saveDir, clientID, 1, "\\|");
+            JOptionPane.showMessageDialog(null, "Deletion in Progess...", "Deleting", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            //Nothing Happens.
+        }
+
+        if (this.delClientResp == true) {
+            JOptionPane.showMessageDialog(null, "Successfully Deleted Customer: " + clientID, "Delete Successful", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                this.setClientData();
+            } catch (IOException ex) {
+                Logger.getLogger(manager_mm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Something Went Wrong, Please Try Again Later!", "Something Went Wrong!", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnClientDeleteMouseClicked
 
     //Reset Forms
     private void resetClientRegistrationForm() {
@@ -1357,6 +1505,8 @@ public class manager_mm extends javax.swing.JFrame {
     private javax.swing.JButton btnApptDelete;
     private javax.swing.JLabel btnApptManagement;
     private javax.swing.JButton btnApptUpdate;
+    private javax.swing.JButton btnClientDelete;
+    private javax.swing.JButton btnClientUpdate;
     private javax.swing.JPanel btnClose;
     private javax.swing.JButton btnCreateAppointment;
     private javax.swing.JButton btnFeedbackDelete;
@@ -1372,15 +1522,14 @@ public class manager_mm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegisterUser;
     private javax.swing.JLabel btnSettings;
     private javax.swing.JButton btnUserDelete;
-    private javax.swing.JButton btnUserDelete1;
     private javax.swing.JLabel btnUserManagement;
     private javax.swing.JButton btnUserUpdate;
-    private javax.swing.JButton btnUserUpdate1;
     private javax.swing.JComboBox<String> cbClientGender;
     private javax.swing.JComboBox<String> cbCreateClient;
     private javax.swing.JComboBox<String> cbCreateTechnician;
     private javax.swing.JComboBox<String> cbRole;
     private javax.swing.JComboBox<String> cbUserGender;
+    private javax.swing.JTable clientTable;
     private javax.swing.JPanel client_list_panel;
     private javax.swing.JPanel client_register_panel;
     private javax.swing.JPanel create_appt_panel;
@@ -1457,7 +1606,6 @@ public class manager_mm extends javax.swing.JFrame {
     private javax.swing.JPanel userManagement;
     private javax.swing.JPanel userManagementLine;
     private javax.swing.JTable userTable;
-    private javax.swing.JTable userTable1;
     private javax.swing.JPanel user_list_panel;
     private javax.swing.JPanel view_payment_record;
     // End of variables declaration//GEN-END:variables
