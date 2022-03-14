@@ -1,0 +1,7 @@
+Us000001|Prem96|123|Prem|011-3211111|KL|prem@mail.com|Male|Manager
+Us000002|FY0123|123|Ryan|012-3456789|KL|ryan@mail.com|Male|Manager
+Us000003|Sia123|123|Sia|011-3211111|KL|sia@mail.com|Male|Technician
+Us000004|Jose|123|Joseline|011-1111111|KL|jose@mail.com|Female|Technician
+Us000005|Irfan|123|Irfan|011-1111111|KL|irfan@gmail.com|Male|Manager
+Us000006|M0123|456|Test-M|011-1111111|KL|testm@gmail.com|Male|Manager
+Us000007|T0123|123|Test-T|011-1111111|KL|testt@gmail.com|Female|Technician

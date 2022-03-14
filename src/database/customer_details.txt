@@ -1,0 +1,5 @@
+Cus000001|Sia|011-3211111|KL|sia@gmail.com|Male
+Cus000002|Ryan|011-3211111|KL|lim@gmail.com|Male
+Cus000003|Prem|011-3211111|KL|prem@gmail.com|Male
+Cus000004|Irfan|019-2929292|KL|irfan@mail.com|Male
+Cus000005|jo|011-11111111|22 KL|jo@gmail.com|Female

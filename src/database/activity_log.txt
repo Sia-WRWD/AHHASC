@@ -1,0 +1,246 @@
+AL000001|User, Us000001 has Updated User: Cus000001 at 19/12/2021 13:14.
+AL000002|User, Us000002 has Logged In at 20/12/2021 14:49.
+AL000003|User, Us000002 has Updated Payment: Pay000004's Data at 20/12/2021 14:50.
+AL000005|User, Us000002 has Deleted Feedback: FB000004 at 20/12/2021 14:51.
+AL000006|User, Us000002 has Updated Payment: Pay000004's Data at 20/12/2021 14:54.
+AL000007|User, Us000002 has Updated His/Her Profile Details at 20/12/2021 14:56.
+AL000008|User, Us000002 has Exited and Logged Out at 20/12/2021 14:56.
+AL000009|User, Us000002 has Logged In at 22/12/2021 21:49.
+AL000010|User, Us000002 has Exited and Logged Out at 22/12/2021 21:50.
+AL000011|User, Us000003 has Logged In at 26/12/2021 16:51.
+AL000012|User, Us000003 has Logged In at 26/12/2021 16:53.
+AL000013|User, Us000003 has Logged In at 26/12/2021 16:54.
+AL000014|User, Us000003 has Logged In at 26/12/2021 16:54.
+AL000015|User, Us000003 has Logged Out at 26/12/2021 16:56.
+AL000016|User, Us000003 has Logged In at 26/12/2021 16:56.
+AL000017|User, Us000003 has Logged In at 29/12/2021 11:46.
+AL000018|User, Us000003 has Updated Feedback: Appt000007's Data at 29/12/2021 11:47.
+AL000019|User, Us000003 has Logged Out at 29/12/2021 11:51.
+AL000020|User, Us000002 has Logged In at 29/12/2021 11:52.
+AL000021|User, Us000002 has Exited and Logged Out at 29/12/2021 11:57.
+AL000022|User, Us000002 has Logged In at 08/01/2022 19:26.
+AL000023|User, Us000002 has Exited and Logged Out at 08/01/2022 19:27.
+AL000024|User, Us000002 has Logged In at 13/01/2022 16:56.
+AL000025|User, Us000002 has Logged Out at 13/01/2022 16:56.
+AL000026|User, Us000003 has Logged In at 28/01/2022 21:13.
+AL000027|User, Us000003 has Logged Out at 28/01/2022 21:13.
+AL000028|User, Us000002 has Logged In at 28/01/2022 21:13.
+AL000029|User, Us000002 has Exited and Logged Out at 28/01/2022 21:14.
+AL000030|User, Us000002 has Logged In at 28/01/2022 21:27.
+AL000031|User, Us000002 has Exited and Logged Out at 28/01/2022 21:28.
+AL000032|User, Us000002 has Logged In at 28/01/2022 21:39.
+AL000033|User, Us000002 has Exited and Logged Out at 28/01/2022 21:39.
+AL000034|User, Us000002 has Logged In at 28/01/2022 21:40.
+AL000035|User, Us000002 has Exited and Logged Out at 28/01/2022 21:48.
+AL000036|User, Us000002 has Logged In at 28/01/2022 22:16.
+AL000037|User, Us000002 has Logged In at 28/01/2022 22:18.
+AL000038|User, Us000002 has Exited and Logged Out at 28/01/2022 22:18.
+AL000039|User, Us000002 has Exited and Logged Out at 28/01/2022 22:20.
+AL000040|User, Us000002 has Logged In at 28/01/2022 22:20.
+AL000041|User, Us000002 has Exited and Logged Out at 28/01/2022 22:20.
+AL000042|User, Us000002 has Logged In at 28/01/2022 22:32.
+AL000043|User, Us000002 has Exited and Logged Out at 28/01/2022 22:35.
+AL000044|User, Us000002 has Logged In at 28/01/2022 22:35.
+AL000045|User, Us000002 has Exited and Logged Out at 28/01/2022 22:39.
+AL000046|User, Us000002 has Logged In at 28/01/2022 22:39.
+AL000047|User, Us000002 has Exited and Logged Out at 28/01/2022 22:40.
+AL000048|User, Us000002 has Logged In at 28/01/2022 22:40.
+AL000049|User, Us000002 has Exited and Logged Out at 28/01/2022 22:40.
+AL000050|User, Us000002 has Logged In at 29/01/2022 11:40.
+AL000051|User, Us000002 has Exited and Logged Out at 29/01/2022 11:41.
+AL000052|User, Us000002 has Logged In at 29/01/2022 13:14.
+AL000053|User, Us000002 has Created and Appointment for client: Cus000002 at 29/01/2022 13:15.
+AL000054|User, Us000002 has Exited and Logged Out at 29/01/2022 13:15.
+AL000055|User, Us000002 has Logged In at 29/01/2022 13:15.
+AL000056|User, Us000002 has Exited and Logged Out at 29/01/2022 13:16.
+AL000057|User, Us000002 has Logged In at 29/01/2022 13:16.
+AL000058|User, Us000002 has Updated Payment: Pay000009's Data at 29/01/2022 13:16.
+AL000059|User, Us000002 has Exited and Logged Out at 29/01/2022 13:17.
+AL000060|User, Us000002 has Logged In at 29/01/2022 14:54.
+AL000061|User, Us000002 has Exited and Logged Out at 29/01/2022 14:55.
+AL000062|User, Us000002 has Logged In at 29/01/2022 14:58.
+AL000063|User, Us000002 has Registered New Manager: Irfan at 29/01/2022 14:59.
+AL000064|User, Us000002 has Logged Out at 29/01/2022 14:59.
+AL000065|User, Us000005 has Logged In at 29/01/2022 14:59.
+AL000066|User, Us000005 has Exited and Logged Out at 29/01/2022 14:59.
+AL000067|User, Us000002 has Logged In at 29/01/2022 16:04.
+AL000068|User, Us000002 has Exited and Logged Out at 29/01/2022 16:04.
+AL000069|User, Us000002 has Logged In at 29/01/2022 18:08.
+AL000070|User, Us000002 has Exited and Logged Out at 29/01/2022 18:20.
+AL000071|User, Us000002 has Logged In at 29/01/2022 18:20.
+AL000072|User, Us000002 has Exited and Logged Out at 29/01/2022 18:21.
+AL000073|User, Us000002 has Logged In at 29/01/2022 18:22.
+AL000074|User, Us000002 has Exited and Logged Out at 29/01/2022 18:23.
+AL000075|User, Us000002 has Logged In at 29/01/2022 18:23.
+AL000076|User, Us000002 has Exited and Logged Out at 29/01/2022 18:25.
+AL000077|User, Us000002 has Logged In at 29/01/2022 18:32.
+AL000078|User, Us000002 has Generated Monthly Transaction Report at 29/01/2022 18:32.
+AL000079|User, Us000002 has Generated Yearly Transaction Report at 29/01/2022 18:32.
+AL000080|User, Us000002 has Generated Monthly Feedback Report at 29/01/2022 18:32.
+AL000081|User, Us000002 has Generated Yearly Feedback Report at 29/01/2022 18:32.
+AL000082|User, Us000002 has Generated Monthly Appointment Report at 29/01/2022 18:32.
+AL000083|User, Us000002 has Generated Yearly Appointment Report at 29/01/2022 18:32.
+AL000084|User, Us000002 has Generated User Details Report at 29/01/2022 18:33.
+AL000085|User, Us000002 has Exited and Logged Out at 29/01/2022 18:33.
+AL000086|User, Us000002 has Logged In at 30/01/2022 14:54.
+AL000087|User, Us000002 has Exited and Logged Out at 30/01/2022 14:55.
+AL000088|User, Us000002 has Logged In at 30/01/2022 14:58.
+AL000089|User, Us000002 has Exited and Logged Out at 30/01/2022 14:59.
+AL000090|User, Us000002 has Logged In at 30/01/2022 14:59.
+AL000091|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:00.
+AL000092|User, Us000002 has Exited and Logged Out at 30/01/2022 15:00.
+AL000093|User, Us000002 has Logged In at 30/01/2022 15:02.
+AL000094|User, Us000002 has Generated Yearly Transaction Report at 30/01/2022 15:02.
+AL000095|User, Us000002 has Exited and Logged Out at 30/01/2022 15:02.
+AL000096|User, Us000002 has Logged In at 30/01/2022 15:04.
+AL000097|User, Us000002 has Generated Yearly Transaction Report at 30/01/2022 15:04.
+AL000098|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:04.
+AL000099|User, Us000002 has Exited and Logged Out at 30/01/2022 15:05.
+AL000100|User, Us000002 has Logged In at 30/01/2022 15:05.
+AL000101|User, Us000002 has Generated Yearly Appointment Report at 30/01/2022 15:06.
+AL000102|User, Us000002 has Generated Yearly Appointment Report at 30/01/2022 15:06.
+AL000103|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:07.
+AL000104|User, Us000002 has Exited and Logged Out at 30/01/2022 15:07.
+AL000105|User, Us000002 has Logged In at 30/01/2022 15:10.
+AL000106|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:10.
+AL000107|User, Us000002 has Exited and Logged Out at 30/01/2022 15:11.
+AL000108|User, Us000002 has Logged In at 30/01/2022 15:11.
+AL000109|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:11.
+AL000110|User, Us000002 has Exited and Logged Out at 30/01/2022 15:13.
+AL000111|User, Us000002 has Logged In at 30/01/2022 15:15.
+AL000112|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:16.
+AL000113|User, Us000002 has Exited and Logged Out at 30/01/2022 15:16.
+AL000114|User, Us000002 has Logged In at 30/01/2022 15:16.
+AL000115|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:17.
+AL000116|User, Us000002 has Exited and Logged Out at 30/01/2022 15:32.
+AL000117|User, Us000002 has Logged In at 30/01/2022 15:34.
+AL000118|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:34.
+AL000119|User, Us000002 has Exited and Logged Out at 30/01/2022 15:35.
+AL000120|User, Us000002 has Logged In at 30/01/2022 15:35.
+AL000121|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:36.
+AL000122|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:36.
+AL000123|User, Us000002 has Exited and Logged Out at 30/01/2022 15:36.
+AL000124|User, Us000002 has Logged In at 30/01/2022 15:36.
+AL000125|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:37.
+AL000126|User, Us000002 has Exited and Logged Out at 30/01/2022 15:38.
+AL000127|User, Us000002 has Logged In at 30/01/2022 15:38.
+AL000128|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:38.
+AL000129|User, Us000002 has Exited and Logged Out at 30/01/2022 15:40.
+AL000130|User, Us000002 has Logged In at 30/01/2022 15:40.
+AL000131|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:40.
+AL000132|User, Us000002 has Exited and Logged Out at 30/01/2022 15:42.
+AL000133|User, Us000002 has Logged In at 30/01/2022 15:42.
+AL000134|User, Us000002 has Generated Monthly Appointment Report at 30/01/2022 15:43.
+AL000135|User, Us000002 has Exited and Logged Out at 30/01/2022 15:43.
+AL000136|User, Us000002 has Logged In at 30/01/2022 15:44.
+AL000137|User, Us000002 has Generated Monthly Appointment Report at 30/01/2022 15:44.
+AL000138|User, Us000002 has Exited and Logged Out at 30/01/2022 15:45.
+AL000139|User, Us000002 has Logged In at 30/01/2022 15:45.
+AL000140|User, Us000002 has Generated Monthly Appointment Report at 30/01/2022 15:45.
+AL000141|User, Us000002 has Exited and Logged Out at 30/01/2022 15:46.
+AL000142|User, Us000002 has Logged In at 30/01/2022 15:46.
+AL000143|User, Us000002 has Generated Monthly Appointment Report at 30/01/2022 15:46.
+AL000144|User, Us000002 has Exited and Logged Out at 30/01/2022 15:46.
+AL000145|User, Us000002 has Logged In at 30/01/2022 15:48.
+AL000146|User, Us000002 has Generated User Details Report at 30/01/2022 15:48.
+AL000147|User, Us000002 has Exited and Logged Out at 30/01/2022 15:49.
+AL000148|User, Us000002 has Logged In at 30/01/2022 15:49.
+AL000149|User, Us000002 has Generated User Details Report at 30/01/2022 15:49.
+AL000150|User, Us000002 has Exited and Logged Out at 30/01/2022 15:49.
+AL000151|User, Us000002 has Logged In at 30/01/2022 15:50.
+AL000152|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 15:50.
+AL000153|User, Us000002 has Generated Monthly Feedback Report at 30/01/2022 15:50.
+AL000154|User, Us000002 has Generated Yearly Transaction Report at 30/01/2022 15:50.
+AL000155|User, Us000002 has Exited and Logged Out at 30/01/2022 15:51.
+AL000156|User, Us000002 has Logged In at 30/01/2022 20:33.
+AL000157|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 20:34.
+AL000158|User, Us000002 has Generated Yearly Transaction Report at 30/01/2022 20:34.
+AL000159|User, Us000002 has Exited and Logged Out at 30/01/2022 20:51.
+AL000160|User, Us000002 has Logged In at 30/01/2022 20:51.
+AL000161|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 20:51.
+AL000162|User, Us000002 has Exited and Logged Out at 30/01/2022 20:52.
+AL000163|User, Us000002 has Logged In at 30/01/2022 20:52.
+AL000164|User, Us000002 has Exited and Logged Out at 30/01/2022 20:53.
+AL000165|User, Us000002 has Logged In at 30/01/2022 20:59.
+AL000166|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 20:59.
+AL000167|User, Us000002 has Logged Out at 30/01/2022 21:03.
+AL000168|User, Us000002 has Logged In at 30/01/2022 21:26.
+AL000169|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 21:26.
+AL000170|User, Us000002 has Exited and Logged Out at 30/01/2022 21:28.
+AL000171|User, Us000002 has Logged In at 30/01/2022 21:28.
+AL000172|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 21:28.
+AL000173|User, Us000002 has Exited and Logged Out at 30/01/2022 21:30.
+AL000174|User, Us000002 has Logged In at 30/01/2022 21:30.
+AL000175|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 21:31.
+AL000176|User, Us000002 has Exited and Logged Out at 30/01/2022 21:38.
+AL000177|User, Us000002 has Logged In at 30/01/2022 21:39.
+AL000178|User, Us000002 has Generated Monthly Transaction Report at 30/01/2022 21:39.
+AL000179|User, Us000002 has Generated User Details Report at 30/01/2022 21:39.
+AL000180|User, Us000002 has Exited and Logged Out at 30/01/2022 21:39.
+AL000181|User, Us000002 has Logged In at 12/02/2022 17:10.
+AL000182|User, Us000002 has Exited and Logged Out at 12/02/2022 17:10.
+AL000183|User, Us000002 has Logged In at 12/02/2022 17:15.
+AL000184|User, Us000002 has Exited and Logged Out at 12/02/2022 17:17.
+AL000185|User, Us000002 has Logged In at 12/02/2022 17:17.
+AL000186|User, Us000002 has Exited and Logged Out at 12/02/2022 17:17.
+AL000187|User, Us000002 has Logged In at 12/02/2022 17:20.
+AL000188|User, Us000002 has Exited and Logged Out at 12/02/2022 17:21.
+AL000189|User, Us000002 has Logged In at 12/02/2022 17:26.
+AL000190|User, Us000002 has Logged Out at 12/02/2022 17:26.
+AL000191|User, Us000003 has Logged In at 12/02/2022 17:27.
+AL000192|User, Us000003 has Exited and Logged Out at 12/02/2022 17:28.
+AL000193|User, Us000002 has Logged In at 12/02/2022 17:52.
+AL000194|User, Us000002 has Exited and Logged Out at 12/02/2022 17:53.
+AL000195|User, Us000003 has Logged In at 12/02/2022 17:58.
+AL000196|User, Us000003 has Updated Payment: Appt000001's Data at 12/02/2022 17:59.
+AL000197|User, Us000003 has Exited and Logged Out at 12/02/2022 17:59.
+AL000198|User, Us000003 has Logged In at 12/02/2022 18:01.
+AL000199|User, Us000003 has Exited and Logged Out at 12/02/2022 18:01.
+AL000200|User, Us000003 has Logged In at 12/02/2022 18:02.
+AL000201|User, Us000003 has Updated Feedback: Appt000001's Data at 12/02/2022 18:02.
+AL000202|User, Us000003 has Exited and Logged Out at 12/02/2022 18:02.
+AL000203|User, Us000002 has Logged In at 12/02/2022 18:04.
+AL000204|User, Us000002 has Updated Payment: Pay000001's Data at 12/02/2022 18:05.
+AL000205|User, Us000002 has Updated Feedback: FB000001's Data at 12/02/2022 18:05.
+AL000206|User, Us000002 has Exited and Logged Out at 12/02/2022 18:05.
+AL000207|User, Us000002 has Logged In at 12/02/2022 18:11.
+AL000208|User, Us000002 has Exited and Logged Out at 12/02/2022 18:11.
+AL000209|User, Us000003 has Logged In at 17/02/2022 19:14.
+AL000210|User, Us000003 has Logged Out at 17/02/2022 19:14.
+AL000211|User, Us000002 has Logged In at 17/02/2022 19:15.
+AL000212|User, Us000002 has Exited and Logged Out at 17/02/2022 19:15.
+AL000213|User, Us000002 has Logged In at 17/02/2022 19:31.
+AL000214|User, Us000002 has Resetted His/Her Account's Password at 17/02/2022 19:31.
+AL000215|User, Us000002 has Exited and Logged Out at 17/02/2022 19:38.
+AL000216|User, Us000002 has Logged In at 18/02/2022 17:48.
+AL000217|User, Us000002 has Logged Out at 18/02/2022 17:48.
+AL000218|User, Us000005 has Logged In at 22/02/2022 17:13.
+AL000219|User, Us000005 has Generated Monthly Transaction Report at 22/02/2022 17:15.
+AL000220|User, Us000005 has Generated Yearly Transaction Report at 22/02/2022 17:15.
+AL000221|User, Us000005 has Generated Yearly Transaction Report at 22/02/2022 17:15.
+AL000222|User, Us000005 has Generated Yearly Transaction Report at 22/02/2022 17:16.
+AL000223|User, Us000005 has Registered New Client: Johari at 22/02/2022 17:17.
+AL000224|User, Us000005 has Updated Client: Johari's Data at 22/02/2022 17:18.
+AL000225|User, Us000005 has Deleted Client: Cus000005 at 22/02/2022 17:18.
+AL000226|User, Us000005 has Registered New Client: jo at 22/02/2022 17:20.
+AL000227|User, Us000005 has Logged Out at 22/02/2022 17:20.
+AL000228|User, Us000005 has Logged In at 22/02/2022 17:20.
+AL000229|User, Us000005 has Logged Out at 22/02/2022 17:26.
+AL000230|User, Us000006 has Logged In at 22/02/2022 17:26.
+AL000231|User, Us000006 has Logged Out at 22/02/2022 17:27.
+AL000232|User, Us000006 has Logged In at 22/02/2022 17:27.
+AL000233|User, Us000006 has Exited and Logged Out at 22/02/2022 17:28.
+AL000234|User, Us000006 has Logged In at 22/02/2022 17:30.
+AL000235|User, Us000006 has Logged In at 22/02/2022 17:31.
+AL000236|User, Us000006 has Created and Appointment for client: Cus000001 at 22/02/2022 17:33.
+AL000237|User, Us000006 has Logged Out at 22/02/2022 17:33.
+AL000238|User, M0123 has Resetted Password at 22/02/2022 17:34.
+AL000239|User, Us000006 has Logged In at 22/02/2022 17:34.
+AL000240|User, Us000006 has Exited and Logged Out at 22/02/2022 17:35.
+AL000241|User, Us000006 has Logged In at 23/02/2022 11:39.
+AL000242|User, Us000006 has Created and Appointment for client: Cus000005 at 23/02/2022 11:40.
+AL000243|User, Us000006 has Logged Out at 23/02/2022 11:40.
+AL000244|User, Us000007 has Logged In at 23/02/2022 11:40.
+AL000245|User, Us000007 has Updated Payment: Appt000011's Data at 23/02/2022 11:43.
+AL000246|User, Us000007 has Updated Feedback: Appt000011's Data at 23/02/2022 11:43.
+AL000247|User, Us000007 has Exited and Logged Out at 23/02/2022 11:44.
