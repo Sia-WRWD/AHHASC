@@ -31,7 +31,7 @@
 
   Thank you.
 
-  P.S.
+  P.S.<br>
   Login Crendentials:
   Manager:
   M0123
